@@ -1,0 +1,10 @@
+version: "3"
+  services: 
+    minecraft:
+      env_file: minecraft.env
+      ports: 
+        - "19132:19132/udp"
+      container_name: minecraft_survival
+      hostname: MinecraftSurvival
+      restart: unless-stopped
+      image: itzg/minecraft-bedrock-server:latest
