@@ -1,4 +1,4 @@
-version: "3"
+version: "3.8"
   services: 
     minecraft:
       env_file: minecraft.env
@@ -8,3 +8,4 @@ version: "3"
       hostname: MinecraftSurvival
       restart: unless-stopped
       image: itzg/minecraft-bedrock-server:latest
+
