@@ -8,4 +8,10 @@ version: "3.8"
       hostname: MinecraftSurvival
       restart: unless-stopped
       image: itzg/minecraft-bedrock-server:latest
+      networks:
+        - vmnw
+  networks:
+    vmnw:
+      external:
+        name: vm_nw
 
