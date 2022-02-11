@@ -11,8 +11,45 @@ services:
     networks:
       - vmnw
     volumes:
-      - "/mnt/data/Minecraft:/data"
+      - "minecraftdata:/data"
+
+  creative:
+    env_file: creative.env
+    ports:
+      - "19133:19132/udp"
+    container_name: minecraft_creative
+    hostname: MinecraftCreative
+    restart: unless-stopped
+    image: itzg/minecraft-bedrock-server:latest
+    networks:
+      - vmnw
+    volumes:
+      - "creative:/data"
+
+        #  nichworld:
+        #    env_file: nichworld.env
+        #    ports:
+        #      - "19132:19132/udp"
+        #    container_name: nichworld
+        #    hostname: nichworld
+        #    restart: unless-stopped
+        #    image: itzg/minecraft-bedrock-server:latest
+        #    networks:
+        #      - vmnw
+        #    volumes:
+        #      - "nichworld:/data"
 networks:
   vmnw:
     external:
       name: vm_nw
+
+volumes:
+  minecraftdata:
+    external:
+      name: minefraft_survival_data 
+  creative:
+    external:
+      name: minecraft_creative_data
+  nichworld:
+    
+    
